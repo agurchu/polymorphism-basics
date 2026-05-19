@@ -28,7 +28,16 @@ public class Circle extends Shape implements Drawable, Resizable {
     }
 
     public void resize(double factor){
-
+        radius *= factor;
     }
+
+    @Override
+    public boolean equals(Object otherCircle){
+        if (!(otherCircle instanceof Circle)) return false;
+        if (this == otherCircle ) return true;
+        Circle circle = (Circle) otherCircle;
+        return  circle.radius == radius && circle.color == this.color && circle.name == this.name;
+    }
+    public Double getRadius(){return radius;}
     // TODO: Override describe() if needed (optional)
 }

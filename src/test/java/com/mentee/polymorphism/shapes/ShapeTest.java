@@ -53,26 +53,33 @@ class ShapeTest {
         assertDoesNotThrow(() -> resizableRect.resize(2.0));
     }
 
-//    @Test
-//    void testDowncastingAndInstanceOf() {
-//        Shape shape = new Circle("TestCircle", "Orange", 10.0);
-//
-//        assertTrue(shape instanceof Drawable);
-//        assertTrue(shape instanceof Resizable);
-//        assertTrue(shape instanceof Circle);
-//
-//        if (shape instanceof Circle circle) {
-//            assertEquals(10.0, circle.getRadius(), 0.001); // assuming you add getRadius()
-//        }
-//    }
+    @Test
+    void testDowncastingAndInstanceOf() {
+        Shape shape = new Circle("TestCircle", "Orange", 10.0);
 
-//    @Test
-//    void testResizeBehavior() {
-//        Circle circle = new Circle("ResizableCircle", "Black", 5.0);
-//        double originalArea = circle.calculateArea();
-//
-//        circle.resize(2.0); // double the size
-//
-//        assertEquals(originalArea * 4, circle.calculateArea(), 0.001); // area scales with square of factor
-//    }
+        assertTrue(shape instanceof Drawable);
+        assertTrue(shape instanceof Resizable);
+        assertTrue(shape instanceof Circle);
+
+        if (shape instanceof Circle circle) {
+            assertEquals(10.0, circle.getRadius(), 0.001); // assuming you add getRadius()
+        }
+    }
+
+    @Test
+    void testResizeBehavior() {
+        Circle circle = new Circle("ResizableCircle", "Black", 5.0);
+        double originalArea = circle.calculateArea();
+
+        circle.resize(2.0); // double the size
+
+        assertEquals(originalArea * 4, circle.calculateArea(), 0.001); // area scales with square of factor
+    }
+
+    @Test
+    void testEqualObjects(){
+        Circle circle = new Circle("ResizableCircle", "Black", 5.0);
+        Circle circle2 = new Circle("ResizableCircle", "Black", 5.0);
+        assertEquals(circle2,circle);
+    }
 }
