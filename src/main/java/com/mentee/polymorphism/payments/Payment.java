@@ -5,9 +5,18 @@ public abstract class Payment {
     protected String transactionId;
     protected double amount;
     protected String currency;
+    private String email;
 
     // TODO: Constructor
+    public Payment(String newTransactionId, Double newAmount, String newCurrency, String newEmail){
+        transactionId = newTransactionId;
+        amount = newAmount;
+        currency = newCurrency;
+        email = newEmail;
+    }
 
+
+    public String getEmail(){return email;}
     // Abstract methods
     public abstract boolean processPayment();
     public abstract String getPaymentType();
